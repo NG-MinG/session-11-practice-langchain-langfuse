@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: langfuse-springboot-demo
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: ${LANGFUSE_HOST:}
+          headers:
+            Authorization: Basic ${LANGFUSE_BASIC_AUTH:}
+  endpoints:
+    web:
+      exposure:
+        include: health,info

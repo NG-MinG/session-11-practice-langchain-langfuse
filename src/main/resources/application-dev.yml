@@ -1,0 +1,11 @@
+# Profile "dev": dùng OpenRouter qua client tương thích OpenAI của Spring AI
+spring:
+  ai:
+    model:
+      chat: openai
+    openai:
+      base-url: https://openrouter.ai/api
+      api-key: ${OPENROUTER_API_KEY}
+      chat:
+        options:
+          model: ${OPENROUTER_MODEL:openai/gpt-4o-mini}
